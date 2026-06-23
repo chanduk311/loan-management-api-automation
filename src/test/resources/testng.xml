@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Banking Loan Management API Automation Suite" parallel="methods" thread-count="3">
+
+    <test name="Loan Application Tests">
+        <classes>
+            <class name="com.banking.api.automation.tests.LoanApplicationTests_Fixed"/>
+        </classes>
+    </test>
+
+    <test name="Loan Approval Tests">
+        <classes>
+            <class name="com.banking.api.automation.tests.LoanApprovalTests"/>
+        </classes>
+    </test>
+
+    <test name="EMI Calculation Tests">
+        <classes>
+            <class name="com.banking.api.automation.tests.EMICalculationTests_Fixed"/>
+        </classes>
+    </test>
+
+    <test name="Database Validation Tests">
+        <classes>
+            <class name="com.banking.api.automation.tests.DatabaseValidationTests"/>
+        </classes>
+    </test>
+
+</suite>
