@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-27T20:06:38 IST" name="Surefire suite" finished-at="2026-06-27T20:06:41 IST" duration-ms="3064">
+    <groups>
+    </groups>
+    <test started-at="2026-06-27T20:06:38 IST" name="Surefire test" finished-at="2026-06-27T20:06:41 IST" duration-ms="3064">
+      <class name="com.banking.api.automation.tests.LoanApplicationTests">
+        <test-method is-config="true" signature="setupWireMock()[pri:0, instance:com.banking.api.automation.tests.LoanApplicationTests@1d76aeea]" started-at="2026-06-27T20:06:36 IST" name="setupWireMock" finished-at="2026-06-27T20:06:38 IST" duration-ms="1409" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupWireMock -->
+        <test-method signature="testCreateLoanApplicationSuccessfully()[pri:1, instance:com.banking.api.automation.tests.LoanApplicationTests@1d76aeea]" started-at="2026-06-27T20:06:38 IST" name="testCreateLoanApplicationSuccessfully" finished-at="2026-06-27T20:06:41 IST" duration-ms="2990" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateLoanApplicationSuccessfully -->
+        <test-method signature="testCreateLoanWithInsufficientIncome()[pri:2, instance:com.banking.api.automation.tests.LoanApplicationTests@1d76aeea]" started-at="2026-06-27T20:06:41 IST" name="testCreateLoanWithInsufficientIncome" finished-at="2026-06-27T20:06:41 IST" duration-ms="35" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateLoanWithInsufficientIncome -->
+        <test-method is-config="true" signature="teardownWireMock()[pri:0, instance:com.banking.api.automation.tests.LoanApplicationTests@1d76aeea]" started-at="2026-06-27T20:06:41 IST" name="teardownWireMock" finished-at="2026-06-27T20:06:41 IST" duration-ms="21" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardownWireMock -->
+      </class> <!-- com.banking.api.automation.tests.LoanApplicationTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

@@ -1,0 +1,17 @@
+com\banking\api\automation\utils\APIUtil.class
+com\banking\api\automation\utils\JsonUtil.class
+com\banking\api\automation\utils\ReportUtil.class
+com\banking\api\automation\pojos\ApiResponse.class
+com\banking\api\automation\pojos\LoanApplication.class
+com\banking\api\automation\pojos\EMICalculation.class
+com\banking\api\automation\services\EMIService.class
+com\banking\api\automation\services\CustomerService.class
+com\banking\api\automation\config\DatabaseConfig.class
+com\banking\api\automation\pojos\LoanResponse.class
+com\banking\api\automation\utils\DatabaseUtil.class
+com\banking\api\automation\pojos\Customer.class
+com\banking\api\automation\constants\EndPoints.class
+com\banking\api\automation\constants\LoanStatus.class
+com\banking\api\automation\config\APIConfig.class
+com\banking\api\automation\constants\StatusCodes.class
+com\banking\api\automation\constants\EmploymentType.class
