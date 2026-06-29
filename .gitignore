@@ -1,0 +1,42 @@
+```
+# Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+pom.xml.tag
+pom.xml.releaseBackup
+release.properties
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+
+# Testing
+test-reports/
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Environment
+.env
+*.properties.local
+config.local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+dependency-reduced-pom.xml
+.classpath
+.project
+.settings/
+```
