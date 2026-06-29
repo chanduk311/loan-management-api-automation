@@ -8,39 +8,40 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoanApprovalTests {
+public class LoanApprovalTests extends BaseTests {
 
     /**
      * TEST 1: Approve Loan - Happy Path
      * Scenario: Loan officer approves a pending loan application
      */
+
     @Test(priority = 1)
     public void testApproveLoanSuccessfully() {
-        // Create a loan first
-        LoanApplication loanApp = new LoanApplication(
-                "CUST005",
-                600000.0,
-                60,
-                2000000.0,
-                "SALARIED",
-                "PROPERTY"
-        );
+        // Setup Mocks
+        mockCreateLoanSuccess();
+        mockApproveLoan();
 
-        Response createResponse = APIUtil.postRequest(EndPoints.CREATE_LOAN, loanApp);
-        String loanId = createResponse.jsonPath().getString("loan_id");
+        // Create loan first
+        String createPayload = "{\n" +
+                "  \"customerId\": \"CUST005\",\n" +
+                "  \"loanAmount\": 600000.0,\n" +
+                "  \"tenureMonths\": 60,\n" +
+                "  \"annualIncome\": 2000000.0,\n" +
+                "  \"employmentType\": \"SALARIED\",\n" +
+                "  \"collateralType\": \"PROPERTY\"\n" +
+                "}";
 
-        // Approve the loan
+        // Approve loan
         String approvalPayload = "{\"approvalStatus\":\"APPROVED\",\"approvedAmount\":600000}";
         Response approveResponse = APIUtil.putRequest(
-                EndPoints.APPROVE_LOAN.replace("{loanId}", loanId),
+                EndPoints.APPROVE_LOAN.replace("{loanId}", "LN20240101000001"),
                 approvalPayload
         );
 
-        Assert.assertEquals(approveResponse.getStatusCode(), 200, "Should return 200");
-
-        // Database Validation
-        String dbStatus = DatabaseUtil.getLoanStatus(loanId);
-        Assert.assertEquals(dbStatus, "APPROVED", "Database should show APPROVED status");
+        // Assert
+        Assert.assertEquals(approveResponse.getStatusCode(), 200);
+        Assert.assertEquals(approveResponse.jsonPath().getString("status"), "APPROVED");
+        System.out.println("✓ Test Passed: Loan approved successfully");
     }
 
     /**

@@ -110,7 +110,24 @@ public class MockApiSetup {
 
         System.out.println("✓ Mock setup: POST /api/v1/loans/calculate-emi (200)");
     }
-
+    /**
+     * Mock: GET /loans/{loanId} → Returns 200 OK
+     */
+    public static void mockGetLoanByIdTwo() {
+        stubFor(get(urlMatching("/api/v1/loans/LaonID"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\n" +
+                                "  \"loanId\": \"LN20240101000001\",\n" +
+                                "  \"customerId\": \"CUST001\",\n" +
+                                "  \"loanAmount\": 500000.0,\n" +
+                                "  \"tenureMonths\": 60,\n" +
+                                "  \"interestRate\": 8.5,\n" +
+                                "  \"loanStatus\": \"PENDING\"\n" +
+                                "}")));
+        System.out.println("✓ Mock setup: GET /api/v1/loans/LoanID (200)");
+    }
     /**
      * Setup All Common Mocks
      */

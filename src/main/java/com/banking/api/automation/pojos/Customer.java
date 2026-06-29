@@ -68,6 +68,7 @@ public class Customer {
         this.creditScore = creditScore;
     }
 
+
     public double getAnnualIncome() {
         return annualIncome;
     }

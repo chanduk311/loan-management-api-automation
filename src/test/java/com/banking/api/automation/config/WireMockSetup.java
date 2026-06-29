@@ -9,12 +9,12 @@ public class WireMockSetup {
     private static WireMockServer wireMockServer;
 
     /**
-     * Start WireMock server on port 8089
+     * Start WireMock server on port 8989
      */
     public static void startWireMock() {
-        wireMockServer = new WireMockServer(wireMockConfig().port(8089));
+        wireMockServer = new WireMockServer(wireMockConfig().port(8989));
         wireMockServer.start();
-        System.out.println("✓ WireMock server started on http://localhost:8089");
+        System.out.println("✓ WireMock server started on http://localhost:8989");
     }
 
     /**

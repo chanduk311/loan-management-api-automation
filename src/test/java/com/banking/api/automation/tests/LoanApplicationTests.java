@@ -8,7 +8,13 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.banking.api.automation.config.MockApiSetup.mockGetLoanByIdTwo;
+
 public class LoanApplicationTests extends BaseTests {
+
+    /**
+     * TEST 1: Create Loan Application - Happy Path
+     */
 
     @Test(priority = 1)
     public void testCreateLoanApplicationSuccessfully() {
@@ -33,6 +39,10 @@ public class LoanApplicationTests extends BaseTests {
         Assert.assertEquals(loanResponse.getStatus(), "CREATED", "Status should be CREATED");
     }
 
+    /**
+     * TEST 2: Create Loan - Insufficient Income
+     */
+
     @Test(priority = 2)
     public void testCreateLoanWithInsufficientIncome() {
         // Arrange
@@ -50,6 +60,23 @@ public class LoanApplicationTests extends BaseTests {
 
         // Assert
         Assert.assertEquals(response.getStatusCode(), 400, "Should return 400");
+    }
+
+    /**
+     * TEST 3: Retrieve Loan Application
+     */
+    @Test(priority = 3)
+    public void testGetLoanApplicationById() {
+        // Setup Mock
+        mockGetLoanById();
+
+        // Act
+        Response response = APIUtil.getRequest(EndPoints.GET_LOAN_BY_ID.replace("{loanId}", "LN20240101000001"));
+
+        // Assert
+        Assert.assertEquals(response.getStatusCode(), 200, "Should return 200");
+        Assert.assertEquals(response.jsonPath().getString("customerId"), "CUST001");
+        System.out.println("✓ Test Passed: Retrieved loan successfully");
     }
 
 }
