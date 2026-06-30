@@ -4,14 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-
-            steps {
-
-                git 'https://github.com/chanduk311/loan-management-api-automation.git'
-            }
-        }
-
         stage('Maven Build') {
 
             steps {
