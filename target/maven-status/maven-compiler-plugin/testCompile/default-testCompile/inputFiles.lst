@@ -1,9 +1,9 @@
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\config\WireMockSetup.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\LoanApplicationTests.java
-C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\BaseTests.java
+C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\EMICalculationTests.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\DatabaseConnectionTest.java
+C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\BaseTest.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\DatabaseValidationTests.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\config\MockApiSetup.java
-C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\EMICalculationTests_Fixed.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\tests\LoanApprovalTests.java
 C:\Users\chand\OneDrive\Desktop\Banking loan api automation framework\loan-management-api-automation\src\test\java\com\banking\api\automation\AppTest.java

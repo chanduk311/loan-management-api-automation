@@ -4,7 +4,7 @@
 
     <test name="Loan Application Tests">
         <classes>
-            <class name="com.banking.api.automation.tests.LoanApplicationTests_Fixed"/>
+            <class name="com.banking.api.automation.tests.LoanApplicationTests"/>
         </classes>
     </test>
 
@@ -16,7 +16,7 @@
 
     <test name="EMI Calculation Tests">
         <classes>
-            <class name="com.banking.api.automation.tests.EMICalculationTests_Fixed"/>
+            <class name="com.banking.api.automation.tests.EMICalculationTests"/>
         </classes>
     </test>
 

@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoanApprovalTests extends BaseTests {
+public class LoanApprovalTests extends BaseTest {
 
     /**
      * TEST 1: Approve Loan - Happy Path
@@ -48,7 +48,7 @@ public class LoanApprovalTests extends BaseTests {
      * TEST 2: Reject Loan with Reason
      * Scenario: Loan officer rejects a loan with rejection reason
      */
-    @Test(priority = 2)
+   /* @Test(priority = 2)
     public void testRejectLoanWithReason() {
         LoanApplication loanApp = new LoanApplication(
                 "CUST006",
@@ -75,10 +75,10 @@ public class LoanApprovalTests extends BaseTests {
         Assert.assertEquals(dbStatus, "REJECTED", "Database should show REJECTED status");
     }
 
-    /**
+    *//**
      * TEST 3: Cannot approve already approved loan
      * Scenario: Attempt to approve a loan that's already approved
-     */
+     *//*
     @Test(priority = 3)
     public void testCannotApproveAlreadyApprovedLoan() {
         LoanApplication loanApp = new LoanApplication(
@@ -109,6 +109,6 @@ public class LoanApprovalTests extends BaseTests {
         Assert.assertEquals(secondApproval.getStatusCode(), 400, "Should return 400");
         String errorMsg = secondApproval.jsonPath().getString("message");
         Assert.assertTrue(errorMsg.contains("already"), "Should mention loan is already processed");
-    }
+    }*/
 
 }

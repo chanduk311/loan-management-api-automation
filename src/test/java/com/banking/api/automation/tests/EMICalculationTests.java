@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class EMICalculationTests_Fixed extends BaseTests {
+public class EMICalculationTests extends BaseTest {
 
     @Test(priority = 1)
     public void testEMICalculationAccuracy() {

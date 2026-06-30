@@ -1,9 +1,9 @@
 com\banking\api\automation\tests\DatabaseValidationTests.class
 com\banking\api\automation\config\WireMockSetup.class
+com\banking\api\automation\tests\BaseTest.class
 com\banking\api\automation\DatabaseConnectionTest.class
 com\banking\api\automation\tests\LoanApprovalTests.class
-com\banking\api\automation\tests\BaseTests.class
-com\banking\api\automation\tests\EMICalculationTests_Fixed.class
 com\banking\api\automation\tests\LoanApplicationTests.class
+com\banking\api\automation\tests\EMICalculationTests.class
 com\banking\api\automation\config\MockApiSetup.class
 com\banking\api\automation\AppTest.class

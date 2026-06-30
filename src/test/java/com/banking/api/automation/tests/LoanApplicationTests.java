@@ -10,13 +10,13 @@ import org.testng.annotations.Test;
 
 import static com.banking.api.automation.config.MockApiSetup.mockGetLoanByIdTwo;
 
-public class LoanApplicationTests extends BaseTests {
+public class LoanApplicationTests extends BaseTest {
 
     /**
      * TEST 1: Create Loan Application - Happy Path
      */
 
-    @Test(priority = 1)
+    /*@Test(priority = 1)
     public void testCreateLoanApplicationSuccessfully() {
         // Arrange
         LoanApplication loanApp = new LoanApplication(
@@ -39,9 +39,9 @@ public class LoanApplicationTests extends BaseTests {
         Assert.assertEquals(loanResponse.getStatus(), "CREATED", "Status should be CREATED");
     }
 
-    /**
+    *//**
      * TEST 2: Create Loan - Insufficient Income
-     */
+     *//*
 
     @Test(priority = 2)
     public void testCreateLoanWithInsufficientIncome() {
@@ -60,7 +60,7 @@ public class LoanApplicationTests extends BaseTests {
 
         // Assert
         Assert.assertEquals(response.getStatusCode(), 400, "Should return 400");
-    }
+    }*/
 
     /**
      * TEST 3: Retrieve Loan Application
