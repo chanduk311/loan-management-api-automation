@@ -10,6 +10,11 @@ public class DatabaseUtil {
     /**
      * Get Loan Application from Database by Loan ID
      */
+
+    public static void initialize(){
+        System.out.println("Report initialized");
+    }
+
     public static Map<String, Object> getLoanApplicationById(String loanId) {
         Map<String, Object> resultMap = new HashMap<>();
 

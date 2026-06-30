@@ -2,8 +2,10 @@ package com.banking.api.automation.tests;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import com.banking.api.automation.utils.ReportUtil;
+import com.banking.api.automation.utils.DatabaseUtil;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
@@ -17,8 +19,8 @@ public class BaseTest {
 
     protected static WireMockServer wireMockServer;
 
-    @BeforeClass(alwaysRun = true)
-    public void setupWireMock() {
+    @BeforeSuite (alwaysRun = true)
+    public void setupSuite()  {
         try {
             // Start WireMock server
             wireMockServer = new WireMockServer(WIREMOCK_PORT);
@@ -26,6 +28,11 @@ public class BaseTest {
 
             // Configure WireMock
             WireMock.configureFor("localhost", WIREMOCK_PORT);
+            // Future
+            ReportUtil.initialize();
+
+            // Future
+            DatabaseUtil.initialize();
 
             System.out.println("✓ WireMock Server Started on " + WIREMOCK_BASE_URL);
             System.out.println("✓ Admin URL: " + WIREMOCK_BASE_URL + "/__admin/");
@@ -38,8 +45,8 @@ public class BaseTest {
         }
     }
 
-    @AfterClass(alwaysRun = true)
-    public void stopWireMock() {
+    @AfterSuite (alwaysRun = true)
+    public void tearDownSuite() {
         try {
             if (wireMockServer != null && wireMockServer.isRunning()) {
                 wireMockServer.stop();
