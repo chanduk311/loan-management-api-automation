@@ -24,7 +24,7 @@ pipeline {
 
             steps {
 
-                bat 'docker run loan-management-api-framework'
+                bat 'docker run banking-api-framework'
             }
         }
     }
