@@ -4,11 +4,14 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.banking.api.automation.utils.ReportUtil;
 import com.banking.api.automation.utils.DatabaseUtil;
+import com.banking.api.automation.listeners.ExtentReportListener;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
+@Listeners(ExtentReportListener.class)
 public class BaseTest {
 
     /**
