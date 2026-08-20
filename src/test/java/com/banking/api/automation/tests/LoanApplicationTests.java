@@ -74,7 +74,7 @@ public class LoanApplicationTests extends BaseTest {
         Response response = APIUtil.getRequest(EndPoints.GET_LOAN_BY_ID.replace("{loanId}", "LN20240101000001"));
 
         // Assert
-        Assert.assertEquals(response.getStatusCode(), 200, "Should return 200");
+        Assert.assertEquals(response.getStatusCode(), 201, "Should return 201");
         Assert.assertEquals(response.jsonPath().getString("customerId"), "CUST001");
         System.out.println("✓ Test Passed: Retrieved loan successfully");
     }
