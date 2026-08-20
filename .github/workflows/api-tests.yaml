@@ -45,6 +45,11 @@ jobs:
               echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
             fi
 
+      - name: Verify selected environment
+        run: |
+          echo "Selected environment: ${{ inputs.environment }}"
+          echo "BASE_URL: $BASE_URL"
+
       - name: Run API automation tests
         run: mvn clean test
 
