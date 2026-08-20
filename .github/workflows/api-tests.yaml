@@ -82,6 +82,9 @@ jobs:
           if [ "${{ github.event_name }}" = "schedule" ]; then
             TEST_SUITE="regression"
             echo "Scheduled run - executing REGRESSION suite"
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            TEST_SUITE="smoke"
+            echo "Pull request - executing SMOKE suite"
           else
             TEST_SUITE=$(echo "${{ inputs.test_suite }}" | tr '[:upper:]' '[:lower:]')
             echo "Manual run - executing $TEST_SUITE suite"
