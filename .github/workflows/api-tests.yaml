@@ -19,6 +19,9 @@ on:
           - TEST
           - ACCP
 
+  schedule:
+    - cron: '30 18 * * *'
+
 jobs:
   api-tests:
 
@@ -42,10 +45,15 @@ jobs:
       - name: Set API environment
         shell: bash
         run: |
-            if [ "${{ inputs.environment }}" = "ACCP" ]; then
-              echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
-            else
-              echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "Scheduled run - using TEST environment"
+            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV
+          elif [ "${{ inputs.environment }}" = "ACCP" ]; then
+            echo "Manual run - using ACCP environment"
+            echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
+          else
+            echo "Manual run - using TEST environment"
+            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
             fi
           
       - name: Configure API token
