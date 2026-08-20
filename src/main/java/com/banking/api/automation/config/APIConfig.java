@@ -37,7 +37,11 @@ public class APIConfig {
      */
     private static void initializeRequestSpec() {
         try {
-            String baseUrl = properties.getProperty("base.url");
+            String baseUrl = System.getenv("BASE.URL");
+
+            if(baseUrl ==null || baseUrl.isBlank()){
+                baseUrl = properties.getProperty("base.url");
+            }
 
             requestSpec = new RequestSpecBuilder()
                     .setBaseUri(baseUrl)
