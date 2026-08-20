@@ -69,17 +69,24 @@ jobs:
           API_TOKEN: ${{ secrets.API_TOKEN }}
         run: echo "API token configured"
 
-      - name: Verify selected environment
+      - name: Verify selected configuration
         run: |
-          echo "Selected environment: ${{ inputs.environment }}"
-          echo "Selected test suite: ${{ inputs.test_suite }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Test suite: ${{ inputs.test_suite }}"
           echo "BASE_URL: $BASE_URL"
 
       - name: Run API automation tests
         shell: bash
         run: |
-          TEST_SUITE=$(echo "${{ inputs.test_suite }}" | tr '[:upper:]' '[:lower:]')
-          echo "Running test suite: $TEST_SUITE"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            TEST_SUITE="regression"
+            echo "Scheduled run - executing REGRESSION suite"
+          else
+            TEST_SUITE=$(echo "${{ inputs.test_suite }}" | tr '[:upper:]' '[:lower:]')
+            echo "Manual run - executing $TEST_SUITE suite"
+          fi
+
           mvn clean test -Dgroups="$TEST_SUITE"
 
       - name: Upload Extent Report
