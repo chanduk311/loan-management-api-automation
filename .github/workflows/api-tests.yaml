@@ -24,6 +24,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      API_TOKEN: ${{ secrets.API_TOKEN }}
+
     steps:
 
       - name: Checkout repository
@@ -44,6 +47,11 @@ jobs:
             else
               echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
             fi
+          
+      - name: Configure API token
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: echo "API token configured"
 
       - name: Verify selected environment
         run: |
