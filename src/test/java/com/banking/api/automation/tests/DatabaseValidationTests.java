@@ -115,7 +115,11 @@ public class DatabaseValidationTests extends BaseTest {
     /**
      * TEST 4: Verify EMI Calculation Contains All Required Fields
      */
-    @Test(priority = 4, description = "EMI calculation should return all required fields")
+    @Test(
+            priority = 4,
+            description = "EMI calculation should return all required fields",
+            groups = {"smoke", "regression"}
+    )
     public void testEMICalculationDataValidation() {
         mockCalculateEMI();
 

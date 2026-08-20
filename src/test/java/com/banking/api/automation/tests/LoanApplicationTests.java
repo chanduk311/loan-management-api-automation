@@ -65,7 +65,7 @@ public class LoanApplicationTests extends BaseTest {
     /**
      * TEST 3: Retrieve Loan Application
      */
-    @Test(priority = 3)
+    @Test(priority = 3, groups = {"smoke", "regression"})
     public void testGetLoanApplicationById() {
         // Setup Mock
         mockGetLoanById();

@@ -19,6 +19,14 @@ on:
           - TEST
           - ACCP
 
+      test_suite:
+        description: 'Select test suite'
+        required: true
+        type: choice
+        options:
+          - SMOKE
+          - REGRESSION
+
   schedule:
     - cron: '30 18 * * *'
 
@@ -64,10 +72,15 @@ jobs:
       - name: Verify selected environment
         run: |
           echo "Selected environment: ${{ inputs.environment }}"
+          echo "Selected test suite: ${{ inputs.test_suite }}"
           echo "BASE_URL: $BASE_URL"
 
       - name: Run API automation tests
-        run: mvn clean test
+        shell: bash
+        run: |
+          TEST_SUITE=$(echo "${{ inputs.test_suite }}" | tr '[:upper:]' '[:lower:]')
+          echo "Running test suite: $TEST_SUITE"
+          mvn clean test -Dgroups="$TEST_SUITE"
 
       - name: Upload Extent Report
         if: always()
