@@ -24,9 +24,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      BASE_URL: ${{ vars.TEST_BASE_URL }}
-
     steps:
 
       - name: Checkout repository
@@ -38,6 +35,15 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: maven
+
+      - name: Set API environment
+        shell: bash
+        run: |
+            if [ "${{ inputs.environment }}" = "ACCP" ]; then
+              echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
+            else
+              echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
+            fi
 
       - name: Run API automation tests
         run: mvn clean test
