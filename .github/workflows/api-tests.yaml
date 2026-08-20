@@ -9,6 +9,16 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select test environment'
+        required: true
+        type: choice
+        options:
+          - TEST
+          - ACCP
+
 jobs:
   api-tests:
 
@@ -38,4 +48,6 @@ jobs:
         with:
               name: extent-report
               path: test-reports/ExtentReport.html
+
+
 
