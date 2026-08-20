@@ -2,44 +2,44 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-08-20T15:00:04 IST" name="Banking Loan Management API Automation Suite" finished-at="2026-08-20T15:00:06 IST" duration-ms="2285">
+  <suite started-at="2026-08-20T20:00:23 IST" name="Banking Loan Management API Automation Suite" finished-at="2026-08-20T20:00:25 IST" duration-ms="2189">
     <groups>
     </groups>
-    <test started-at="2026-08-20T15:00:04 IST" name="Loan Application Tests" finished-at="2026-08-20T15:00:06 IST" duration-ms="1794">
+    <test started-at="2026-08-20T20:00:23 IST" name="Loan Application Tests" finished-at="2026-08-20T20:00:25 IST" duration-ms="1692">
       <class name="com.banking.api.automation.tests.LoanApplicationTests">
-        <test-method signature="testGetLoanApplicationById()[pri:3, instance:com.banking.api.automation.tests.LoanApplicationTests@1622f1b]" started-at="2026-08-20T15:00:04 IST" name="testGetLoanApplicationById" finished-at="2026-08-20T15:00:06 IST" duration-ms="1768" status="PASS">
+        <test-method signature="testGetLoanApplicationById()[pri:3, instance:com.banking.api.automation.tests.LoanApplicationTests@1622f1b]" started-at="2026-08-20T20:00:23 IST" name="testGetLoanApplicationById" finished-at="2026-08-20T20:00:25 IST" duration-ms="1664" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetLoanApplicationById -->
       </class> <!-- com.banking.api.automation.tests.LoanApplicationTests -->
     </test> <!-- Loan Application Tests -->
-    <test started-at="2026-08-20T15:00:06 IST" name="Loan Approval Tests" finished-at="2026-08-20T15:00:06 IST" duration-ms="67">
+    <test started-at="2026-08-20T20:00:25 IST" name="Loan Approval Tests" finished-at="2026-08-20T20:00:25 IST" duration-ms="61">
       <class name="com.banking.api.automation.tests.LoanApprovalTests">
-        <test-method signature="testApproveLoanSuccessfully()[pri:1, instance:com.banking.api.automation.tests.LoanApprovalTests@68999068]" started-at="2026-08-20T15:00:06 IST" name="testApproveLoanSuccessfully" finished-at="2026-08-20T15:00:06 IST" duration-ms="67" status="PASS">
+        <test-method signature="testApproveLoanSuccessfully()[pri:1, instance:com.banking.api.automation.tests.LoanApprovalTests@68999068]" started-at="2026-08-20T20:00:25 IST" name="testApproveLoanSuccessfully" finished-at="2026-08-20T20:00:25 IST" duration-ms="61" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testApproveLoanSuccessfully -->
       </class> <!-- com.banking.api.automation.tests.LoanApprovalTests -->
     </test> <!-- Loan Approval Tests -->
-    <test started-at="2026-08-20T15:00:06 IST" name="EMI Calculation Tests" finished-at="2026-08-20T15:00:06 IST" duration-ms="84">
+    <test started-at="2026-08-20T20:00:25 IST" name="EMI Calculation Tests" finished-at="2026-08-20T20:00:25 IST" duration-ms="75">
       <class name="com.banking.api.automation.tests.EMICalculationTests">
-        <test-method signature="testEMICalculationAccuracy()[pri:1, instance:com.banking.api.automation.tests.EMICalculationTests@61df66b6]" started-at="2026-08-20T15:00:06 IST" name="testEMICalculationAccuracy" finished-at="2026-08-20T15:00:06 IST" duration-ms="84" status="PASS">
+        <test-method signature="testEMICalculationAccuracy()[pri:1, instance:com.banking.api.automation.tests.EMICalculationTests@61df66b6]" started-at="2026-08-20T20:00:25 IST" name="testEMICalculationAccuracy" finished-at="2026-08-20T20:00:25 IST" duration-ms="75" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEMICalculationAccuracy -->
       </class> <!-- com.banking.api.automation.tests.EMICalculationTests -->
     </test> <!-- EMI Calculation Tests -->
-    <test started-at="2026-08-20T15:00:06 IST" name="Database Validation Tests" finished-at="2026-08-20T15:00:06 IST" duration-ms="54">
+    <test started-at="2026-08-20T20:00:25 IST" name="Database Validation Tests" finished-at="2026-08-20T20:00:25 IST" duration-ms="56">
       <class name="com.banking.api.automation.tests.DatabaseValidationTests">
-        <test-method is-config="true" signature="setupSuite()[pri:0, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T15:00:03 IST" name="setupSuite" finished-at="2026-08-20T15:00:04 IST" duration-ms="733" status="PASS">
+        <test-method is-config="true" signature="setupSuite()[pri:0, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T20:00:22 IST" name="setupSuite" finished-at="2026-08-20T20:00:23 IST" duration-ms="682" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupSuite -->
-        <test-method signature="testEMICalculationDataValidation()[pri:4, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T15:00:06 IST" name="testEMICalculationDataValidation" description="EMI calculation should return all required fields" finished-at="2026-08-20T15:00:06 IST" duration-ms="54" status="PASS">
+        <test-method signature="testEMICalculationDataValidation()[pri:4, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T20:00:25 IST" name="testEMICalculationDataValidation" description="EMI calculation should return all required fields" finished-at="2026-08-20T20:00:25 IST" duration-ms="56" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEMICalculationDataValidation -->
-        <test-method is-config="true" signature="tearDownSuite()[pri:0, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T15:00:07 IST" name="tearDownSuite" finished-at="2026-08-20T15:00:07 IST" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="tearDownSuite()[pri:0, instance:com.banking.api.automation.tests.DatabaseValidationTests@6a192cfe]" started-at="2026-08-20T20:00:25 IST" name="tearDownSuite" finished-at="2026-08-20T20:00:25 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownSuite -->

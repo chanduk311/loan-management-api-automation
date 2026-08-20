@@ -43,13 +43,21 @@ public class APIConfig {
                 baseUrl = properties.getProperty("base.url");
             }
 
-            requestSpec = new RequestSpecBuilder()
+            String apiToken = System.getenv("API_TOKEN");
+
+
+            RequestSpecBuilder builder = new RequestSpecBuilder()
                     .setBaseUri(baseUrl)
                     .setContentType(ContentType.JSON)
                     .setAccept(ContentType.JSON)
                     .addHeader("Accept-Encoding", "gzip, deflate")
-                    .addHeader("Connection", "keep-alive")
-                    .build();
+                    .addHeader("Connection", "keep-alive");
+
+            if (apiToken !=null && !apiToken.isBlank()){
+                builder.addHeader("Authorization", "Bearer " + apiToken);
+            }
+
+            requestSpec = builder.build();
 
             System.out.println("✓ API configuration initialized with base URL: " + baseUrl);
 
