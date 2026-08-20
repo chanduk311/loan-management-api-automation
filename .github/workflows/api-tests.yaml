@@ -47,7 +47,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             echo "Scheduled run - using TEST environment"
-            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV
+            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
           elif [ "${{ inputs.environment }}" = "ACCP" ]; then
             echo "Manual run - using ACCP environment"
             echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
