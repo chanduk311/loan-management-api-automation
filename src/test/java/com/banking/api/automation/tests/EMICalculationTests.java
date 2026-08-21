@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class EMICalculationTests extends BaseTest {
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"smoke", "regression"})
     public void testEMICalculationAccuracy() {
         // Setup Mock
         mockCalculateEMI();

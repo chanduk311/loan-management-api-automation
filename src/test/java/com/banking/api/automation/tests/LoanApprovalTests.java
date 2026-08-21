@@ -15,7 +15,7 @@ public class LoanApprovalTests extends BaseTest {
      * Scenario: Loan officer approves a pending loan application
      */
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"smoke", "regression"})
     public void testApproveLoanSuccessfully() {
         // Setup Mocks
         mockCreateLoanSuccess();

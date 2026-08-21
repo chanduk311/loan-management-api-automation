@@ -19,6 +19,14 @@ on:
           - TEST
           - ACCP
 
+      test_suite:
+        description: 'Select test suite'
+        required: true
+        type: choice
+        options:
+          - SMOKE
+          - REGRESSION
+
   schedule:
     - cron: '30 18 * * *'
 
@@ -26,6 +34,10 @@ jobs:
   api-tests:
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        environment: ${{ fromJSON(github.event_name == 'workflow_dispatch' && format('["{0}"]', inputs.environment) || '["TEST"]') }}
 
     env:
       API_TOKEN: ${{ secrets.API_TOKEN }}
@@ -45,29 +57,41 @@ jobs:
       - name: Set API environment
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "Scheduled run - using TEST environment"
-            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
-          elif [ "${{ inputs.environment }}" = "ACCP" ]; then
-            echo "Manual run - using ACCP environment"
+          if [ "${{ matrix.environment }}" = "ACCP" ]; then
+            echo "Using ACCP environment"
             echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
           else
-            echo "Manual run - using TEST environment"
+            echo "Using TEST environment"
             echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
-            fi
+          fi
           
       - name: Configure API token
         env:
           API_TOKEN: ${{ secrets.API_TOKEN }}
         run: echo "API token configured"
 
-      - name: Verify selected environment
+      - name: Verify selected configuration
         run: |
-          echo "Selected environment: ${{ inputs.environment }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Test suite: ${{ inputs.test_suite }}"
           echo "BASE_URL: $BASE_URL"
 
       - name: Run API automation tests
-        run: mvn clean test
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            TEST_SUITE="regression"
+            echo "Scheduled run - executing REGRESSION suite"
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            TEST_SUITE="smoke"
+            echo "Pull request - executing SMOKE suite"
+          else
+            TEST_SUITE=$(echo "${{ inputs.test_suite }}" | tr '[:upper:]' '[:lower:]')
+            echo "Manual run - executing $TEST_SUITE suite"
+          fi
+
+          mvn clean test -Dgroups="$TEST_SUITE"
 
       - name: Upload Extent Report
         if: always()
