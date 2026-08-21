@@ -136,14 +136,16 @@
           <div class="suite-Banking_Loan_Management_API_Automation_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.banking.api.automation.tests.EMICalculationTests</span>
+              <span class="class-name">com.banking.api.automation.tests.DatabaseValidationTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testEMICalculationAccuracy">
-                  </a> <!-- testEMICalculationAccuracy -->
-                  <span class="method-name">testEMICalculationAccuracy</span>
+                  <a name="testEMICalculationDataValidation">
+                  </a> <!-- testEMICalculationDataValidation -->
+                  <span class="method-name">testEMICalculationDataValidation</span>
+                  <em>
+(EMI calculation should return all required fields)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -166,23 +168,6 @@
           <div class="suite-Banking_Loan_Management_API_Automation_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.banking.api.automation.tests.DatabaseValidationTests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testEMICalculationDataValidation">
-                  </a> <!-- testEMICalculationDataValidation -->
-                  <span class="method-name">testEMICalculationDataValidation</span>
-                  <em>
-(EMI calculation should return all required fields)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Banking_Loan_Management_API_Automation_Suite-class-passed -->
-          <div class="suite-Banking_Loan_Management_API_Automation_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
               <span class="class-name">com.banking.api.automation.tests.LoanApplicationTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -191,6 +176,21 @@
                   <a name="testGetLoanApplicationById">
                   </a> <!-- testGetLoanApplicationById -->
                   <span class="method-name">testGetLoanApplicationById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Banking_Loan_Management_API_Automation_Suite-class-passed -->
+          <div class="suite-Banking_Loan_Management_API_Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.banking.api.automation.tests.EMICalculationTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testEMICalculationAccuracy">
+                  </a> <!-- testEMICalculationAccuracy -->
+                  <span class="method-name">testEMICalculationAccuracy</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -204,48 +204,23 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Banking Loan Management API Automation Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;groups&gt;
-    &lt;run&gt;
-      &lt;include name=&quot;smoke&quot;/&gt;
-    &lt;/run&gt;
-  &lt;/groups&gt;
-  &lt;test thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Loan Application Tests&quot; verbose=&quot;0&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;smoke&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
+&lt;suite thread-count=&quot;3&quot; parallel=&quot;classes&quot; name=&quot;Banking Loan Management API Automation Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;3&quot; parallel=&quot;classes&quot; name=&quot;Loan Application Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.banking.api.automation.tests.LoanApplicationTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Loan Application Tests --&gt;
-  &lt;test thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Loan Approval Tests&quot; verbose=&quot;0&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;smoke&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
+  &lt;test thread-count=&quot;3&quot; parallel=&quot;classes&quot; name=&quot;Loan Approval Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.banking.api.automation.tests.LoanApprovalTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Loan Approval Tests --&gt;
-  &lt;test thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;EMI Calculation Tests&quot; verbose=&quot;0&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;smoke&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
+  &lt;test thread-count=&quot;3&quot; parallel=&quot;classes&quot; name=&quot;EMI Calculation Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.banking.api.automation.tests.EMICalculationTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- EMI Calculation Tests --&gt;
-  &lt;test thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Database Validation Tests&quot; verbose=&quot;0&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;smoke&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
+  &lt;test thread-count=&quot;3&quot; parallel=&quot;classes&quot; name=&quot;Database Validation Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.banking.api.automation.tests.DatabaseValidationTests&quot;/&gt;
     &lt;/classes&gt;
@@ -340,19 +315,19 @@ data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testGetLoanApplicationById')
 data.setCell(0, 2, 'com.banking.api.automation.tests.LoanApplicationTests')
-data.setCell(0, 3, 1770);
+data.setCell(0, 3, 1767);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testEMICalculationAccuracy')
 data.setCell(1, 2, 'com.banking.api.automation.tests.EMICalculationTests')
-data.setCell(1, 3, 94);
+data.setCell(1, 3, 96);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testEMICalculationDataValidation')
 data.setCell(2, 2, 'com.banking.api.automation.tests.DatabaseValidationTests')
-data.setCell(2, 3, 67);
+data.setCell(2, 3, 63);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'testApproveLoanSuccessfully')
 data.setCell(3, 2, 'com.banking.api.automation.tests.LoanApprovalTests')
-data.setCell(3, 3, 61);
+data.setCell(3, 3, 58);
 window.suiteTableData['Banking_Loan_Management_API_Automation_Suite']= { tableData: data, tableDiv: 'times-div-Banking_Loan_Management_API_Automation_Suite'}
 return data;
 }
@@ -393,32 +368,32 @@ return data;
               <div class="chronological-class-name">com.banking.api.automation.tests.LoanApplicationTests</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testGetLoanApplicationById</span>
-                <span class="method-start">689 ms</span>
+                <span class="method-start">717 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.banking.api.automation.tests.LoanApprovalTests</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testApproveLoanSuccessfully</span>
-                <span class="method-start">2729 ms</span>
+                <span class="method-start">2754 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.banking.api.automation.tests.EMICalculationTests</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testEMICalculationAccuracy</span>
-                <span class="method-start">2806 ms</span>
+                <span class="method-start">2828 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.banking.api.automation.tests.DatabaseValidationTests</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testEMICalculationDataValidation</span>
-                <span class="method-start">2915 ms</span>
+                <span class="method-start">2933 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownSuite</span>
-                <span class="method-start">2991 ms</span>
+                <span class="method-start">3007 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
