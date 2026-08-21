@@ -35,6 +35,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        environment: ${{ fromJSON(github.event_name == 'workflow_dispatch' && format('["{0}"]', inputs.environment) || '["TEST"]') }}
+
     env:
       API_TOKEN: ${{ secrets.API_TOKEN }}
 
@@ -53,16 +57,13 @@ jobs:
       - name: Set API environment
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "Scheduled run - using TEST environment"
-            echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
-          elif [ "${{ inputs.environment }}" = "ACCP" ]; then
-            echo "Manual run - using ACCP environment"
+          if [ "${{ matrix.environment }}" = "ACCP" ]; then
+            echo "Using ACCP environment"
             echo "BASE_URL=${{ vars.ACCP_BASE_URL }}" >> "$GITHUB_ENV"
           else
-            echo "Manual run - using TEST environment"
+            echo "Using TEST environment"
             echo "BASE_URL=${{ vars.TEST_BASE_URL }}" >> "$GITHUB_ENV"
-            fi
+          fi
           
       - name: Configure API token
         env:
